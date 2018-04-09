@@ -218,8 +218,8 @@ AutoPlay.handleMinigames = function() {
   if (Game.isMinigameReady(Game.Objects["Wizard tower"])) {
     var me=Game.Objects["Wizard tower"];
     var g=me.minigame;
-    var sp=g.spells["hand of fate"]; // try to get a sugar lump in backfiring
-	if(Game.shimmerTypes['golden'].n && g.magic>=g.getSpellCost(sp) && (g.magic/g.magicM >= 0.95)) { g.castSpell(sp); }
+    var sp=g.spells["haggler's charm"]; //buy the cheapest spell to get the achievement quickly 
+	if(g.magic>=g.getSpellCost(sp) && (g.magic/g.magicM >= 0.95)) { g.castSpell(sp); }
     if (Game.shimmerTypes['golden'].n == 2 && !Game.Achievements["Four-leaf cookie"].won && Game.lumps>0 && g.magic>=g.getSpellCost(sp)) { g.castSpell(sp); }
     if (Game.shimmerTypes['golden'].n == 3 && !Game.Achievements["Four-leaf cookie"].won) { g.lumpRefill.click(); g.castSpell(sp); } 
   }
