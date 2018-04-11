@@ -34,7 +34,7 @@ Copy this code and save it as a bookmark. Paste it in the URL section. To activa
 
 ```javascript
 javascript: (function () {
-	Game.LoadMod('https://prinzstani.github.io/CookieBot/cookieAutoPlay.js');
+	Game.LoadMod('https://timhaga.github.io/CookieBot/cookieAutoPlay.js');
 }());
 ```
 
