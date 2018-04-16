@@ -218,10 +218,15 @@ AutoPlay.handleMinigames = function() {
   if (Game.isMinigameReady(Game.Objects["Wizard tower"])) {
     var me=Game.Objects["Wizard tower"];
     var g=me.minigame;
-    var sp=g.spells["haggler's charm"]; //buy the cheapest spell to get the achievement quickly 
-	if(g.magic>=g.getSpellCost(sp) && (g.magic/g.magicM >= 0.95)) { g.castSpell(sp); }
-    if (Game.shimmerTypes['golden'].n == 2 && !Game.Achievements["Four-leaf cookie"].won && Game.lumps>0 && g.magic>=g.getSpellCost(sp)) { g.castSpell(sp); }
-    if (Game.shimmerTypes['golden'].n == 3 && !Game.Achievements["Four-leaf cookie"].won) { g.lumpRefill.click(); g.castSpell(sp); } 
+    if (!Game.Achievements["A wizard is you"].won) {
+      var sp=g.spells["haggler's charm"]; //buy the cheapest spell to get the achievement quickly
+      if(g.magic>=g.getSpellCost(sp) && (g.magic/g.magicM >= 0.95)) { g.castSpell(sp); }
+    } else {
+      var sp=g.spells["hand of fate"];
+      if(Game.shimmerTypes['golden'].n && g.magic>=g.getSpellCost(sp) && (g.magic/g.magicM >= 0.95)) { g.castSpell(sp); }
+      if (Game.shimmerTypes['golden'].n == 2 && !Game.Achievements["Four-leaf cookie"].won && Game.lumps>0 && g.magic>=g.getSpellCost(sp)) { g.castSpell(sp); }
+      if (Game.shimmerTypes['golden'].n == 3 && !Game.Achievements["Four-leaf cookie"].won) { g.lumpRefill.click(); g.castSpell(sp); } 
+    }
   }
   // temples: pantheon
   if (Game.isMinigameReady(Game.Objects["Temple"])) {
