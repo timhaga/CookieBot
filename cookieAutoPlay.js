@@ -93,7 +93,7 @@ AutoPlay.avoidbuy = function(up) { //normally we do not buy 227, 71, 73, rolling
 	case 84: return Game.Upgrades["Elder Pledge"].bought; // elder covenant
 //	case 85: return Game.Upgrades["Elder Covenant"].bought; // revoke elder covenant 
     case 227: return true; // choco egg
-	default: return up.pool=="toggle";
+	default: return up.pool == "toggle";
 } }
 
 //===================== Handle Buildings ==========================
@@ -107,7 +107,7 @@ AutoPlay.handleBuildings = function() {
   for(var i = Game.ObjectsById.length-1; i >= 0; i--){ var me = Game.ObjectsById[i]; var mycpc = me.storedCps / me.price; if (mycpc > cpc) { cpc = mycpc; } }; 
   for(i = Game.ObjectsById.length-1; i >= 0; i--) { 
     var me = Game.ObjectsById[i]; 
-    if ((me.storedCps/me.price > cpc/2 || me.amount % 50 >= 40) && (me.getSumPrice(checkAmount)<Game.cookies)) { me.buy(buyAmount); return; }
+    if ((me.amount <= 400) && (me.storedCps/me.price > cpc/2 || me.amount % 50 >= 40) && (me.getSumPrice(checkAmount)<Game.cookies)) { me.buy(buyAmount); return; }
   }
   if(Game.resets && Game.ascensionMode!=1 && Game.isMinigameReady(Game.Objects["Temple"]) && Game.Objects["Temple"].minigame.slot[0]==10 && Game.BuildingsOwned%10!=0) { // Rigidel is in slot 0, buy the cheapest
 	var minIdx=0, minPrice=Game.ObjectsById[minIdx].price;
